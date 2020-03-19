@@ -1,0 +1,21 @@
+
+name: "Runs the given gcloud command"
+description: "Uses the latest gcloud docker image to run a gcloud command. Authorizes with a given service account."
+author: "Adzz"
+inputs:
+  credentials:
+    description: The file with the service account credentials in.
+    required: true
+  project:
+    description: The name of the project you want to do stuff in.
+    required: true
+  command:
+    description: The command you wish to run e.g. deploy.
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.credentials }}
+    - ${{ inputs.project }}
+    - ${{ inputs.command }}
