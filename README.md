@@ -5,5 +5,21 @@ Allows you to run `gcloud` commands in github actions. It will authorize you via
 This is useful for deploying for example:
 
 ```yaml
+name: Checkout! Deploy! Rejoice!
+on:
+  push:
+    branches:
+      - master
 
+jobs:
+  deploy_to_gae:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: deploy
+        uses: Adzz/deploy_to_gae_action@v0.0.1-beta
+        with:
+          credentials: ${{ secrets.SERVICE_ACCOUNT }}
+          project: ${{ secrets.GAE_PROJECT }}
+          command: app deploy --quiet
 ```
