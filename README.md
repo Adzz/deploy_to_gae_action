@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: deploy
-        uses: Adzz/deploy_to_gae_action@v0.0.1-beta
+        uses: Adzz/deploy_to_gae_action@1
         with:
           credentials: ${{ secrets.SERVICE_ACCOUNT }}
           project: ${{ secrets.GAE_PROJECT }}
