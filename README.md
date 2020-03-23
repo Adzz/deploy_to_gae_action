@@ -21,5 +21,5 @@ jobs:
         with:
           credentials: ${{ secrets.SERVICE_ACCOUNT }}
           project: ${{ secrets.GAE_PROJECT }}
-          command: app deploy --quiet
+          command: app deploy --quiet --promote
 ```
